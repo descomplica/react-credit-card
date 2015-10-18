@@ -8,10 +8,6 @@ $red: #ff6161;
 $black: #27292d;
 $gray: #555;
 $blueButton: #34474C;
-$checked-color: #00daa8;
-$unchecked-color: #000;
-$checkbox-height: 20px;
-$duration: .4s;
 
 .ds-payment {
     font-family: 'Helvetica', 'Verdana', sans-serif;
@@ -165,7 +161,7 @@ $duration: .4s;
                 position: absolute;
                 pointer-events: none;
             }
-            
+
             &:after {
                 border-color: rgba(194, 194, 194, 0);
                 border-top-color: #c2c2c2;
@@ -196,6 +192,8 @@ $duration: .4s;
     }
 
     .ds-component-container-checkbox {
+      clear: both;
+
         b {
             font-weight: 200;
         }
@@ -246,7 +244,7 @@ $duration: .4s;
 
         .ds-payment-button {
             margin-top: 35px;
-        } 
+        }
     }
 
     .ds-payment-installments {
@@ -433,132 +431,4 @@ $duration: .4s;
       fill: #FFF;
       margin: 20px
     }
-}
-
-  
-.ds-component-container-checkbox {
-    margin: 10px 0;
-    color: #9A9A9A;
-    font-size: 14px;
-
-    input[type=checkbox]{
-        display:none;
-    }
-
-    b {
-        margin: -20px 20px 10px;
-        display: block;
-        cursor: pointer;
-    }
-}
-
-.ds-component-check-box {
-    height: $checkbox-height;
-    width: $checkbox-height;
-    background-color: #FFF;
-    border: $checkbox-height * .1 solid #F0F0F0;
-    border-radius: 3px;
-    position: relative;
-    display: inline-block;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-transition: border-color ease $duration/2;
-    -o-transition: border-color ease $duration/2;
-    -webkit-transition: border-color ease $duration/2;
-    transition: border-color ease $duration/2;
-    cursor:pointer;
-
-    &::before, &::after {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        position: absolute;
-        height: 0;
-        width: $checkbox-height * .2;
-        background-color: $checked-color;
-        display: inline-block;
-        -moz-transform-origin: left top;
-        -ms-transform-origin: left top;
-        -o-transform-origin: left top;
-        -webkit-transform-origin: left top;
-        transform-origin: left top;
-        border-radius: 5px;
-        content: ' ';
-        -webkit-transition: opacity ease .5;
-        -moz-transition: opacity ease .5;
-        transition: opacity ease .5;
-    }
-
-    &::before {
-        top:$checkbox-height * .72;
-        left: $checkbox-height * .41;
-        -moz-transform: rotate(-135deg);
-        -ms-transform: rotate(-135deg);
-        -o-transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-    }
-
-    &::after {
-        top: $checkbox-height * .37;
-        left: $checkbox-height * .05;
-        -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-}
-
-.ds-component-check-box.checked {
-    &::after{
-        height: $checkbox-height * .5;
-        -moz-animation: dothabottomcheck $duration/2 ease 0s forwards;
-        -o-animation: dothabottomcheck $duration/2 ease 0s forwards;
-        -webkit-animation: dothabottomcheck $duration/2 ease 0s forwards;
-        animation: dothabottomcheck $duration/2 ease 0s forwards;
-    }
-     
-    &::before{
-        height: $checkbox-height * 1.2;
-        -moz-animation: dothatopcheck $duration ease 0s forwards;
-        -o-animation: dothatopcheck $duration ease 0s forwards;
-        -webkit-animation: dothatopcheck $duration ease 0s forwards;
-        animation: dothatopcheck $duration ease 0s forwards;
-    }
-}
-
-
-/* Checkmark style starts */
-
-@-moz-keyframes dothabottomcheck{
-    0% { height: 0; }
-    100% { height: $checkbox-height/2; }
-}
-
-@-webkit-keyframes dothabottomcheck{
-    0% { height: 0; }
-    100% { height: $checkbox-height/2; }
-}
-
-@keyframes dothabottomcheck{
-    0% { height: 0; }
-    100% { height: $checkbox-height/2;  }
-}
-
-@keyframes dothatopcheck{
-    0% { height: 0; }
-    50% { height: 0; }
-    100% { height: $checkbox-height * 1.2; }
-}
-@-webkit-keyframes dothatopcheck{
-    0% { height: 0; }
-    50% { height: 0; }
-    100% { height: $checkbox-height * 1.2; }
-}
-@-moz-keyframes dothatopcheck{
-    0% { height: 0; }
-    50% { height: 0; }
-    100% { height: $checkbox-height * 1.2; }
 }

@@ -1,0 +1,130 @@
+//---------------------------------------------------------------------------
+// Utils
+//---------------------------------------------------------------------------
+@mixin prefix ($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, "" {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+
+@mixin opacity ($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+@mixin text-middle ($height, $line-height: $height) {
+    height: $height;
+    line-height: $line-height;
+}
+
+
+@mixin circle ($size) {
+    width: $size;
+    height: $size;
+    border-radius: $size;
+}
+
+
+@mixin filter-gradient ($from, $to, $dir: vertical) {
+    $gradient-type: if($dir == vertical, 0, 1);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr=#{ie-hex-str($from)}, endColorstr=#{ie-hex-str($to)});
+}
+
+
+@mixin arrow ($width, $height, $direction, $color) {
+    width: 0;
+    height: 0;
+
+    // Right
+    @if ($direction == right) {
+        border-top: $height/2 solid transparent;
+        border-bottom: $height/2 solid transparent;
+        border-left: $width solid $color;
+    }
+
+    // Left
+    @if ($direction == left) {
+        border-top: $height/2 solid transparent;
+        border-right: $width solid $color;
+        border-bottom: $height/2 solid transparent;
+    }
+
+    // Up
+    @if ($direction == top) {
+        border-right: $width/2 solid transparent;
+        border-bottom: $height solid $color;
+        border-left: $width/2 solid transparent;
+    }
+
+    // Down
+    @if ($direction == bottom) {
+        border-top: $height solid $color;
+        border-right: $width/2 solid transparent;
+        border-left: $width/2 solid transparent;
+    }
+}
+
+
+//---------------------------------------------------------------------------
+// Responsive Utils
+//---------------------------------------------------------------------------
+@mixin screen ($s1, $s2: "", $s3: "") {
+    $screen: ($s1, $s2, $s3);
+
+    @each $screen in $screen {
+        @if map-has-key($medias, $screen) {
+            @media #{map-get($medias, $screen)} {
+                @content;
+            }
+        }
+    }
+}
+
+
+@mixin screen-2x {
+    @media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2) {
+        @content;
+    }
+}
+
+
+//---------------------------------------------------------------------------
+// Placeholders Fallback
+//---------------------------------------------------------------------------
+@mixin align-middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .no-csstransforms & {
+        top: auto;
+    }
+}
+
+
+@mixin text-truncate {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        display: block;
+        overflow: hidden;
+
+        height: 0;
+
+        content: "\0020";
+    }
+
+    &:after {
+        clear: both;
+    }
+}

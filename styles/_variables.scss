@@ -1,0 +1,158 @@
+//---------------------------------------------------------------------------
+// Paths
+//---------------------------------------------------------------------------
+$images-path : "../../images";
+$fonts-path  : "../../fonts";
+$logos-path : $images-path + "/common/logos";
+
+
+
+//---------------------------------------------------------------------------
+// Fonts
+//---------------------------------------------------------------------------
+// family
+$font-family-base     : Arial, Helvetica;
+$font-family-featured : "Open Sans Regular";
+
+// size
+$font-size-base: 12px;
+$font-size-small: 9px;
+
+$form-font-size-base: 13px;
+
+
+
+//---------------------------------------------------------------------------
+// Brand colors
+//---------------------------------------------------------------------------
+// colors
+$color-base              : #555;
+
+$color-primary-lighter   : #e6eff8;
+$color-primary-light     : #5397db;
+$color-primary           : #2d70b4;
+$color-primary-dark      : #1763a7;
+$color-primary-darker    : #1e4b5e;
+
+$color-primary-hover      : #1d5fa2;
+$color-primary-dark-hover : #002e5c;
+
+$color-action            : #ff7800;
+$color-action-dark       : #b84601;
+
+$color-action-hover      : #df5900;
+$color-action-dark-hover : #9a3a00;
+
+$color-danger            : #da0428;
+
+
+// link
+$link-color: $color-primary;
+
+
+// form
+$form-color: #7b7b7b;
+
+
+// footer
+$footer-text-color: #dbdbdb;
+
+
+
+//---------------------------------------------------------------------------
+// Heading
+//---------------------------------------------------------------------------
+$h1-font-size : 36px;
+$h2-font-size : 30px;
+$h3-font-size : 24px;
+$h4-font-size : 18px;
+$h5-font-size : 16px;
+$h6-font-size : 14px;
+
+
+
+//---------------------------------------------------------------------------
+// Border
+//---------------------------------------------------------------------------
+// colors
+$border-color-base: #ccc;
+$border-color-base-dark: #999;
+
+$border-color-primary: $color-primary;
+
+// radius
+$border-radius-base: 2px;
+$border-radius-large: 5px;
+
+// field
+$field-dropdown-border-color: #d8d8d8;
+$field-dropdown-border: 3px solid $field-dropdown-border-color;
+$field-dropdown-border-radius: $border-radius-large;
+
+
+
+//---------------------------------------------------------------------------
+// Forms
+//---------------------------------------------------------------------------
+// height
+$forms-height-base: 38px;
+
+// padding
+$forms-padding-tb-base: 10px;
+$forms-padding-lr-base: 10px;
+
+$forms-padding-tb-large: 10px;
+$forms-padding-lr-large: 10px;
+
+
+
+//---------------------------------------------------------------------------
+// Grid
+//---------------------------------------------------------------------------
+$grid-width   : 980px;
+$grid-padding : 5px;
+
+
+
+//---------------------------------------------------------------------------
+// Background
+//---------------------------------------------------------------------------
+$body-background: #eff1ee;
+
+$header-background: #fff;
+
+$forms-background: #fff;
+
+
+
+//---------------------------------------------------------------------------
+// Responsive
+//---------------------------------------------------------------------------
+$medias: (
+    large  : "(min-width: 768px)",
+    medium : "(min-width: 480px) and (max-width: 767px)",
+    small  : "(max-width: 479px)"
+);
+
+
+
+//---------------------------------------------------------------------------
+// Selectors
+//---------------------------------------------------------------------------
+$inputs : ".field-text, .field-textarea, .field-select, .field-box";
+$fields : ".field-text, .field-textarea, .field-select, .field-checkbox-group, .field-radio-group, .field-valtext";
+
+
+
+//---------------------------------------------------------------------------
+// Overlay
+//---------------------------------------------------------------------------
+$overlay-opacity: .85;
+
+
+
+//---------------------------------------------------------------------------
+// Search
+//---------------------------------------------------------------------------
+$search-result-margin-top: 13px;
+

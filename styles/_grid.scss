@@ -1,0 +1,169 @@
+@import "variables";
+@import "mixins";
+//---------------------------------------------------------------------------
+// Mixins
+//---------------------------------------------------------------------------
+// make grid
+@mixin make-grid ($name) {
+    // classes
+    .hide-on-#{$name} {
+        display: none !important;
+    }
+
+    .hide-on-#{$name}-s {
+        display: none;
+    }
+
+    .#{$name}-left-zero {
+        padding-left: 0;
+    }
+
+    .#{$name}-right-zero {
+        padding-right: 0;
+    }
+
+
+    // create grid, prefix, suffix
+    $i: 5;
+
+    @while $i <= 100 {
+        .#{$name}-#{$i} {
+            width: percentage($i/100);
+
+            &.grid {
+                float: left;
+            }
+        }
+
+        .#{$name}-prefix-#{$i} {
+            margin-right: percentage($i/100);
+        }
+
+        .#{$name}-suffix-#{$i} {
+            margin-left: percentage($i/100);
+        }
+
+        $i: $i + 5;
+    }
+
+    .#{$name}-33 {
+        width: 33.33333%;
+
+        &.grid {
+            float: left;
+        }
+    }
+
+    .#{$name}-prefix-33 {
+        margin-right: 33.33333%;
+    }
+
+    .#{$name}-suffix-33 {
+        margin-left: 33.33333%;
+    }
+
+    .#{$name}-66 {
+        width: 66.66667%;
+
+        &.grid {
+            float: left;
+        }
+    }
+
+    .#{$name}-prefix-66 {
+        margin-right: 66.66667%;
+    }
+
+    .#{$name}-suffix-66 {
+        margin-left: 66.66667%;
+    }
+}
+
+
+%grid-collapse {
+    .grid {
+        padding-right: 0;
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+
+@mixin grid-collapse ($padding-left: null) {
+    @extend %grid-collapse;
+
+    @if ($padding-left) {
+        .grid {
+            padding-left: $padding-left;
+        }
+    }
+}
+
+
+
+//---------------------------------------------------------------------------
+// Grid
+//---------------------------------------------------------------------------
+.grid-container {
+    @extend %clearfix;
+
+    max-width: $grid-width;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-right: $grid-padding;
+    padding-left: $grid-padding;
+}
+
+.grid {
+    padding-right: $grid-padding;
+    padding-left: $grid-padding;
+    position: relative;
+}
+
+.grid-zero {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.grid-left-zero {
+    padding-left: 0;
+}
+
+.grid-right-zero {
+    padding-right: 0;
+}
+
+.grid-collapse {
+    @extend %grid-collapse;
+}
+
+
+
+//---------------------------------------------------------------------------
+// Grid large
+//---------------------------------------------------------------------------
+@include screen(large) {
+    @include make-grid(large);
+}
+
+
+
+//---------------------------------------------------------------------------
+// Grid medium
+//---------------------------------------------------------------------------
+@include screen(medium) {
+    @include make-grid(medium);
+}
+
+
+
+//---------------------------------------------------------------------------
+// Grid small
+//---------------------------------------------------------------------------
+@include screen(small) {
+    @include make-grid(small);
+}

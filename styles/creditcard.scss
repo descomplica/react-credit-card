@@ -1,0 +1,564 @@
+@import "grid";
+@import "select";
+
+$loading: #1f5a80;
+$orange: #ff7400;
+$green: #00daa8;
+$red: #ff6161;
+$black: #27292d;
+$gray: #555;
+$blueButton: #34474C;
+$checked-color: #00daa8;
+$unchecked-color: #000;
+$checkbox-height: 20px;
+$duration: .4s;
+
+.ds-payment {
+    font-family: 'Helvetica', 'Verdana', sans-serif;
+    font-weight: 400;
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+           box-sizing: border-box;
+    }
+
+    .ds-payment-header {
+        padding: 0% 0 3%;
+        font-weight: 700;
+        color: #FFF;
+        margin-top: -90px;
+        margin-bottom: 37px;
+
+        .ds-payment-title {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            line-height: .4em;
+            color: #FFF;
+        }
+
+        .ds-payment-subtitle {
+            text-align: center;
+            display: block;
+            font-size: 14px;
+            color: #FFF;
+            line-height: 1.3em;
+
+            b {
+                color: $green;
+            }
+        }
+    }
+
+    .ds-payment-form {
+        margin-top: 10px;
+
+        input[type="text"] {
+            color: $gray;
+            margin: 0 0 10px 0;
+            display: block;
+            width: 100%;
+            border: 1px solid #f1f1f1;
+            background-color: #f1f1f1;
+            cursor: text;
+            overflow: hidden;
+            position: relative;
+            height: 45px;
+            font-size: 14px;
+            padding: 10px;
+            outline: none;
+            text-transform: uppercase;
+        }
+
+        .error {
+            input[type="text"] {
+                border-color: $red;
+                color: $red;
+            }
+
+            .Select {
+                .Select-control {
+                    border-color: $red;
+                    color: $red;
+                }
+            }
+
+            .ds-component-check-box {
+                border-color: $red;
+            }
+
+            .error-message {
+                display: block;
+            }
+        }
+
+        .success {
+            input[type="text"] {
+                border-color: $green;
+                color: $green;
+            }
+
+            .error-message {
+                display: none;
+            }
+        }
+
+        .Select {
+            &.has-value {
+                .Select-control {
+                    border-color: $green;
+                    color: $green;
+                }
+            }
+        }
+
+        .error-message {
+            display: none;
+            color: $red;
+            font-size: 12px;
+            position: absolute;
+            right: 15px;
+            top: 13px;
+        }
+
+        .ds-payment-alert-ico {
+            width: 15px;
+            height: 15px;
+            background-color: $red;
+            border-radius: 50%;
+            display: block;
+            text-align: center;
+            font-size: 11px;
+            padding-top: 2px;
+            color: #FFF;
+            cursor: pointer;
+
+            &:hover {
+                .ds-payment-error-text {
+                    display: block;
+                }
+            }
+        }
+
+        .ds-payment-error-text {
+            display: none;
+            position: absolute;
+            width: 120px;
+            top: -60px;
+            background-color: #c2c2c2;
+            padding: 10px;
+            font-size: 12px;
+            color: #333;
+            font-weight: 200;
+            text-align: center;
+            right: -5px;
+            z-index: 9;
+
+            &:after, &:before {
+                top: 100%;
+                left: 90%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            
+            &:after {
+                border-color: rgba(194, 194, 194, 0);
+                border-top-color: #c2c2c2;
+                border-width: 10px;
+                margin-left: -10px;
+            }
+
+            &:before {
+                border-color: rgba(161, 161, 161, 0);
+                border-top-color: #c2c2c2;
+                border-width: 11px;
+                margin-left: -11px;
+            }
+        }
+    }
+
+    .ds-payment-button {
+        display: block;
+        border: none;
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        outline: none;
+        background: $green;
+        color: $blueButton;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    .ds-component-container-checkbox {
+        b {
+            font-weight: 200;
+        }
+    }
+
+    .ds-payment-loading {
+        background: $loading;
+        padding: 15px 0;
+        border-radius: 3px;
+        width: 100%;
+        height: 95px;
+        float: left;
+        text-align: center;
+
+        img {
+            width: 55px;
+        }
+    }
+
+    .ds-payment-success, .ds-payment-failed {
+        padding: 15px 10px;
+        border-radius: 10px;
+        text-align: center;
+
+        h1 {
+            font-size: 18px;
+            color: $green;
+            font-weight: 200;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 200;
+            color: #333;
+        }
+    }
+
+    .ds-payment-failed {
+        h1 {
+            color: $red;
+        }
+
+        .error-item {
+            display: block;
+            font-size: 14px;
+        }
+
+        .ds-payment-button {
+            margin-top: 35px;
+        } 
+    }
+
+    .ds-payment-installments {
+        clear: both;
+    }
+}
+
+.ds-payment-card {
+    line-height: 1;
+    position: relative;
+    width: 100%;
+    height: 260px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1);
+    -moz-transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1);
+    -o-transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1);
+    -ms-transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1);
+    transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1);
+
+    .ds-payment-card-front {
+        webkit-transition: background-image 0.10s ease-out;
+        -moz-transition: background-image 0.10s ease-out;
+        -o-transition: background-image 0.10s ease-out;
+        -ms-transition: background-image 0.10s ease-out;
+        transition: background-image 0.10s ease-out;
+        background: $green;
+        border-radius: 5px;
+    }
+
+    &.flipped {
+        -webkit-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+
+        .ds-payment-card-cvc {
+            transition: all 0.20s ease-out;
+            visibility: visible;
+        }
+    }
+
+    .ds-payment-flags {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: 50px;
+    }
+
+    &.visa {
+        .ds-payment-flags {
+            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-visa.svg') right no-repeat;
+        }
+    }
+
+    &.mastercard {
+        .ds-payment-flags {
+            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-mastercard.svg') right no-repeat;
+        }
+    }
+
+    &.blanche {
+        .ds-payment-flags {
+            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-diners.svg') right no-repeat;
+        }
+    }
+
+    &.american {
+        .ds-payment-flags {
+            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-amex.svg') right no-repeat;
+        }
+
+        .ds-payment-card-expireCVV {
+            display: block !important;
+        }
+    }
+
+    .ds-payment-card-back {
+        -webkit-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        background: $green;
+        border-radius: 5px;
+
+        .ds-payment-card-bar {
+            margin: 25px -2px 10px;
+            height: 55px;
+            background: $black;
+        }
+
+        .bar-withe {
+            height: 40px;
+            background: rgba(5, 6, 6, 0.13);
+            width: 75%;
+            margin: 0 15px;
+        }
+
+        .ds-payment-card-cvc {
+            position: absolute;
+            top: 95px;
+            left: 330px;
+            color: #141414;
+            text-shadow: none;
+            background-color: #FFF;
+            height: 27px;
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+    }
+
+    .ds-payment-card-front, .ds-payment-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .ds-payment-card-display {
+        font-size: 16px;
+        position: absolute;
+        left: 30px;
+        color: #FFF;
+
+        &.ds-payment-card-expireCVV {
+            left: 335px;
+            bottom: 105px;
+            display: none;
+        }
+    }
+
+    .ds-payment-card-number {
+        clear: both;
+        margin-bottom: 30px;
+        bottom: 65px;
+        font-size: 18px;
+    }
+
+    .ds-payment-card-name {
+        bottom: 65px;
+        text-transform: uppercase;
+    }
+
+    .ds-payment-card-expiry {
+        bottom: 20px;
+        text-transform: uppercase;
+
+        b {
+            display: block;
+            font-size: 12px;
+            text-transform: none;
+            font-weight: 200;
+            line-height: 1.6em;
+        }
+    }
+
+    .ds-payment-card-cvc {
+        left: 312px;
+        bottom: 128px;
+        font-size: 16px;
+        visibility: hidden;
+    }
+
+    .ds-payment-card-logo  {
+        display: none;
+    }
+
+    .logo-descomplica svg {
+      display: inline-block;
+      height: 40px;
+      vertical-align: middle;
+      fill: #FFF;
+      margin: 20px
+    }
+}
+
+  
+.ds-component-container-checkbox {
+    margin: 10px 0;
+    color: #9A9A9A;
+    font-size: 14px;
+
+    input[type=checkbox]{
+        display:none;
+    }
+
+    b {
+        margin: -20px 20px 10px;
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.ds-component-check-box {
+    height: $checkbox-height;
+    width: $checkbox-height;
+    background-color: #FFF;
+    border: $checkbox-height * .1 solid #F0F0F0;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: border-color ease $duration/2;
+    -o-transition: border-color ease $duration/2;
+    -webkit-transition: border-color ease $duration/2;
+    transition: border-color ease $duration/2;
+    cursor:pointer;
+
+    &::before, &::after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: $checkbox-height * .2;
+        background-color: $checked-color;
+        display: inline-block;
+        -moz-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+        border-radius: 5px;
+        content: ' ';
+        -webkit-transition: opacity ease .5;
+        -moz-transition: opacity ease .5;
+        transition: opacity ease .5;
+    }
+
+    &::before {
+        top:$checkbox-height * .72;
+        left: $checkbox-height * .41;
+        -moz-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+
+    &::after {
+        top: $checkbox-height * .37;
+        left: $checkbox-height * .05;
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+.ds-component-check-box.checked {
+    &::after{
+        height: $checkbox-height * .5;
+        -moz-animation: dothabottomcheck $duration/2 ease 0s forwards;
+        -o-animation: dothabottomcheck $duration/2 ease 0s forwards;
+        -webkit-animation: dothabottomcheck $duration/2 ease 0s forwards;
+        animation: dothabottomcheck $duration/2 ease 0s forwards;
+    }
+     
+    &::before{
+        height: $checkbox-height * 1.2;
+        -moz-animation: dothatopcheck $duration ease 0s forwards;
+        -o-animation: dothatopcheck $duration ease 0s forwards;
+        -webkit-animation: dothatopcheck $duration ease 0s forwards;
+        animation: dothatopcheck $duration ease 0s forwards;
+    }
+}
+
+
+/* Checkmark style starts */
+
+@-moz-keyframes dothabottomcheck{
+    0% { height: 0; }
+    100% { height: $checkbox-height/2; }
+}
+
+@-webkit-keyframes dothabottomcheck{
+    0% { height: 0; }
+    100% { height: $checkbox-height/2; }
+}
+
+@keyframes dothabottomcheck{
+    0% { height: 0; }
+    100% { height: $checkbox-height/2;  }
+}
+
+@keyframes dothatopcheck{
+    0% { height: 0; }
+    50% { height: 0; }
+    100% { height: $checkbox-height * 1.2; }
+}
+@-webkit-keyframes dothatopcheck{
+    0% { height: 0; }
+    50% { height: 0; }
+    100% { height: $checkbox-height * 1.2; }
+}
+@-moz-keyframes dothatopcheck{
+    0% { height: 0; }
+    50% { height: 0; }
+    100% { height: $checkbox-height * 1.2; }
+}

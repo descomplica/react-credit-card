@@ -3,11 +3,12 @@
 
 $loading: #1f5a80;
 $orange: #ff7400;
-$green: #00daa8;
-$red: #ff6161;
+$green: #16a085;
+$red: #c0392b;
 $black: #27292d;
 $gray: #555;
-$blueButton: #34474C;
+$blueButton: #2c3e50;
+$silver: #bdc3c7;
 
 .ds-payment {
     font-family: 'Helvetica', 'Verdana', sans-serif;
@@ -50,7 +51,9 @@ $blueButton: #34474C;
     .ds-payment-form {
         margin-top: 10px;
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
             color: $gray;
             margin: 0 0 10px 0;
             display: block;
@@ -68,7 +71,9 @@ $blueButton: #34474C;
         }
 
         .error {
-            input[type="text"] {
+            input[type="text"],
+            input[type="number"],
+            input[type="date"] {
                 border-color: $red;
                 color: $red;
             }
@@ -90,7 +95,9 @@ $blueButton: #34474C;
         }
 
         .success {
-            input[type="text"] {
+            input[type="text"],
+            input[type="number"],
+            input[type="date"] {
                 border-color: $green;
                 color: $green;
             }
@@ -274,7 +281,7 @@ $blueButton: #34474C;
         -o-transition: background-image 0.10s ease-out;
         -ms-transition: background-image 0.10s ease-out;
         transition: background-image 0.10s ease-out;
-        background: $green;
+        background: $silver;
         border-radius: 5px;
     }
 
@@ -298,38 +305,54 @@ $blueButton: #34474C;
     }
 
     &.visa {
-        .ds-payment-flags {
-            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-visa.svg') right no-repeat;
-        }
+      .ds-payment-card-front, .ds-payment-card-back {
+        background: #2980b9;
+      }
+
+      .ds-payment-flags {
+          background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-visa.svg') right no-repeat;
+      }
     }
 
     &.mastercard {
-        .ds-payment-flags {
-            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-mastercard.svg') right no-repeat;
-        }
+      .ds-payment-card-front, .ds-payment-card-back {
+        background: #e74c3c;
+      }
+
+      .ds-payment-flags {
+          background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-mastercard.svg') right no-repeat;
+      }
     }
 
     &.blanche {
-        .ds-payment-flags {
-            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-diners.svg') right no-repeat;
-        }
+      .ds-payment-card-front, .ds-payment-card-back {
+        background: #3498db;
+      }
+
+      .ds-payment-flags {
+          background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-diners.svg') right no-repeat;
+      }
     }
 
     &.american {
-        .ds-payment-flags {
-            background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-amex.svg') right no-repeat;
-        }
+      .ds-payment-card-front, .ds-payment-card-back {
+        background: #34495e;
+      }
 
-        .ds-payment-card-expireCVV {
-            display: block !important;
-        }
+      .ds-payment-flags {
+          background: url('https://dnnsjdj5swfc3.cloudfront.net/web-components/images/credit-card-flags/card-amex.svg') right no-repeat;
+      }
+
+      .ds-payment-card-expireCVV {
+          display: block !important;
+      }
     }
 
     .ds-payment-card-back {
         -webkit-transform: rotateY(180deg);
         -ms-transform: rotateY(180deg);
         transform: rotateY(180deg);
-        background: $green;
+        background: $silver;
         border-radius: 5px;
 
         .ds-payment-card-bar {
@@ -431,4 +454,25 @@ $blueButton: #34474C;
       fill: #FFF;
       margin: 20px
     }
+
+    .ds-payment-shiny {
+      margin: 80px 30px;
+      width: 50px;
+      height: 35px;
+      border-radius: 5px;
+      background: #95a5a6;
+      position: relative;
+
+      &:before {
+        content: " ";
+        display: block;
+        width: 70%;
+        height: 60%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: #7f8c8d;
+        position: absolute;
+        top: 20%;
+      }
+  }
 }

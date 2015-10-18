@@ -5,9 +5,6 @@ import Select from 'react-select';
 import creditcard from 'creditcard';
 import classnames from 'classnames';
 import CardUI from './CardUI';
-import Loading from './Loading';
-import Success from './Success';
-import Failed from './Failed';
 import styles from '../styles/creditcard.scss';
 
 class CreditCard extends React.Component {
@@ -51,7 +48,7 @@ class CreditCard extends React.Component {
         };
 
         if ( name == 'CCexpiry') {
-            value.CCexpiry = this.expiry(e.target.value);
+          value.CCexpiry = this.expiry(e.target.value);
         };
 
         this.setState(value);
@@ -83,7 +80,7 @@ class CreditCard extends React.Component {
         return installmentOptions;
     };
 
-    expiry = (expiryValue) => {
+    expiry(expiryValue) {
         var expiry, expiryMaxLength;
 
         if (expiryValue === "") {
@@ -232,16 +229,18 @@ class CreditCard extends React.Component {
 
     isNumber(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          return false;
+        }
 
         return true;
     };
 
     isString(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return true;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          return true;
+        }
 
         return false;
     };
@@ -284,6 +283,11 @@ class CreditCard extends React.Component {
     priceForInstallmentsCount(installmentsCount) {
         var installmentValue = this.props.price / installmentsCount;
         return installmentValue.toFixed(3).slice(0,-1).replace(".", ",");
+    };
+
+    maxLengthCheck(object) {
+      if (object.target.value.length > object.target.maxLength)
+        object.target.value = object.target.value.slice(0, object.target.maxLength)
     };
 
     render() {

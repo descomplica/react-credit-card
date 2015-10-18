@@ -9,6 +9,7 @@ class CardUI extends React.Component {
                 <div className={'ds-payment-card ' + this.props.cardType}>
                     <div className="ds-payment-card-front">
                         <div className="ds-payment-card-lower">
+                            <div className="ds-payment-shiny"></div>
                             <div className="ds-payment-flags"></div>
                             <div className="ds-payment-card-number ds-payment-card-display">{this.props.CardNumber ? this.props.CardNumber : '•••• •••• •••• ••••'}</div>
                             <div className="ds-payment-card-name ds-payment-card-display">{this.props.HolderName ? this.props.HolderName : 'NOME COMPLETO'}</div>

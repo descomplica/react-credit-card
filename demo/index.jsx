@@ -9,7 +9,7 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <CreditCard installments={5} price={139.90} success={function(data){console.log(data)}} />
+      <CreditCard success={function(data){console.log(data)}} />
     );
   }
 

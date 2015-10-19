@@ -6,7 +6,7 @@ class CardUI extends React.Component {
     render() {
         return (
             <div className="ds-payment-card-container">
-                <div className={'ds-payment-card flipped' + this.props.cardType}>
+                <div className={'ds-payment-card ' + this.props.cardType}>
                     <div className="ds-payment-card-front">
                         <div className="ds-payment-card-lower">
                             <div className="ds-payment-shiny"></div>

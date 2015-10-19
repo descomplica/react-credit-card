@@ -2,6 +2,8 @@
 
 A Simple React component Credit Card
 
+![Credit Card example](https://cloud.githubusercontent.com/assets/602111/10567465/750565d4-75e4-11e5-89ac-bb253f79fd5f.png)
+
 ### Getting Started
 
 ```shell

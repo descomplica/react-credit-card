@@ -19,3 +19,11 @@ ReactDOM.render(
   <Demo />,
   document.getElementById('demo')
 );
+ReactDOM.render(
+  <Demo />,
+  document.getElementById('demo1')
+);
+ReactDOM.render(
+  <Demo />,
+  document.getElementById('demo2')
+);

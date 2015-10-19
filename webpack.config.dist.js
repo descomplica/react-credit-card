@@ -1,12 +1,17 @@
+'use strict';
+
+var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    demo: ['./src/index.jsx']
+  },
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'babel?state=0', exclude: /node_modules/ },
-      {test: /\.scss$/, loader: 'css?modules!postcss!sass'}
+      { test: /\.jsx$/, loader: 'babel?stage=0&loose=all', exclude: /node_modules/ },
+      { test: /\.scss$/, loader: 'css?modules&localIdentName=[local]!postcss!sass'}
     ]
   },
 
@@ -14,18 +19,24 @@ module.exports = {
     react: 'React'
   },
 
-  // TODO: use your component name here
   output: {
-    filename: 'dist/react-component-starter-kit.js',
+    filename: 'dist/react-credit-card',
     libraryTarget: 'umd',
-    library: 'ReactComponentStarterKit'
+    library: 'ReactComponentCreditCard'
+  },
+
+
+  resolve: {
+    extensions: ['', '.jsx', '.js'],
+    alias: {
+      '@components': path.join(__dirname, 'src'),
+      '@styles': path.join(__dirname, 'styles')
+    }
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugin()
-  ],
-
-  resolve: {
-    extensions: ['', '.jsx', '.js']
-  }
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 };

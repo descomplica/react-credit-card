@@ -2,7 +2,6 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
@@ -15,14 +14,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx$/, loader: 'babel?stage=0', exclude: /node_modules/ },
-      {test: /\.scss$/, loader: 'css?modules&localIdentName=[local]!postcss!sass'}
+      { test: /\.scss$/, loader: 'css?modules&localIdentName=[local]!postcss!sass'}
     ]
-  },
-
-  postcss: function () {
-      return {
-          defaults: [autoprefixer]
-      };
   },
 
   output: {
@@ -30,7 +23,11 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js']
+    extensions: ['', '.jsx', '.js'],
+    alias: {
+      '@components': path.join(__dirname, 'src'),
+      '@styles': path.join(__dirname, 'styles')
+    }
   },
 
   plugins: [
@@ -40,5 +37,4 @@ module.exports = {
   devServer: {
     contentBase: './demo'
   }
-
 };

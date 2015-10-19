@@ -2,7 +2,7 @@
 
 A Simple React component Credit Card
 
-![Credit Card example](https://cloud.githubusercontent.com/assets/602111/10567465/750565d4-75e4-11e5-89ac-bb253f79fd5f.png)
+![Credit Card example](https://cloud.githubusercontent.com/assets/602111/10577543/e33e37ea-764a-11e5-830d-1d7f1a8d24c2.png)
 
 ### Getting Started
 

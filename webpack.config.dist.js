@@ -4,13 +4,18 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+  target:  'web',
+  cache:   false,
+  context: __dirname,
+  devtool: false,
+
   entry: {
-    demo: ['./src/index.jsx']
+    demo: ['./src/index.js']
   },
 
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'babel?stage=0&loose=all', exclude: /node_modules/ },
+      { test: /\.js$/, loader: 'babel?stage=0&loose=all', exclude: /node_modules/ },
       { test: /\.scss$/, loader: 'css?modules&localIdentName=[local]!postcss!sass'}
     ]
   },
@@ -27,7 +32,7 @@ module.exports = {
 
 
   resolve: {
-    extensions: ['', '.jsx', '.js'],
+    extensions: ['', '.js'],
     alias: {
       '@components': path.join(__dirname, 'src'),
       '@styles': path.join(__dirname, 'styles')

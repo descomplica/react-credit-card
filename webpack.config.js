@@ -8,12 +8,12 @@ module.exports = {
   devtool: 'eval',
 
   entry: {
-    demo: ['webpack/hot/dev-server', './demo/index.jsx']
+    demo: ['webpack/hot/dev-server', './demo/index.js']
   },
 
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'babel?stage=0', exclude: /node_modules/ },
+      { test: /\.js$/, loader: 'babel?stage=0', exclude: /node_modules/ },
       { test: /\.scss$/, loader: 'css?modules&localIdentName=[local]!postcss!sass'}
     ]
   },
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js'],
+    extensions: ['', '.js'],
     alias: {
       '@components': path.join(__dirname, 'src'),
       '@styles': path.join(__dirname, 'styles')

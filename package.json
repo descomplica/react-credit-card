@@ -1,5 +1,5 @@
 {
-  "name": "react-credit-card",
+  "name": "@descomplica/react-credit-card",
   "version": "1.0.0",
   "description": "A Simple React component Credit Card",
   "main": "./dist/react-credit-card.js",

@@ -27,8 +27,9 @@ class CreditCard extends React.Component {
         this.setState({ failedPayment: false, isBuying: true });
     };
 
-    change = (name, e) => {
+    change = (e) => {
         var value = {};
+        var name = e.target.name;
         value[name] = e.target.value;
 
         if ( name == 'CardNumber' ) {
@@ -227,22 +228,20 @@ class CreditCard extends React.Component {
         }
     };
 
-    isNumber(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-          return false;
-        }
-
-        return true;
+    isNumber = (e) => {
+      var charCode = (e.which) ? e.which : e.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        e.preventDefault();
+      }
     };
 
-    isString(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
+    isString(e) {
+        var charCode = (e.which) ? e.which : e.keyCode
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
           return true;
         }
 
-        return false;
+        e.preventDefault();
     };
 
     handleSubmit = (e) => {
@@ -256,7 +255,6 @@ class CreditCard extends React.Component {
             this.state.validateCvv &&
             this.state.Installments ) {
 
-            // Obj to post
             let infoCreditCard = {
                 HolderName: this.state.HolderName,
                 CardNumber: (this.state.CardNumber).replace(/\s+/g, ''),
@@ -330,7 +328,7 @@ class CreditCard extends React.Component {
                           type="text"
                           name="CardNumber"
                           value={this.state.CardNumber}
-                          onChange={this.change.bind(this, 'CardNumber')}
+                          onChange={this.change}
                           onBlur={this.validateNumber} />
                       <div className="error-message">
                           <b className="ds-payment-alert-ico">?
@@ -347,7 +345,7 @@ class CreditCard extends React.Component {
                           name="HolderName"
                           onKeyPress={this.isString}
                           onBlur={this.validateName}
-                          onChange={this.change.bind(this, 'HolderName')} />
+                          onChange={this.change} />
                           <div className="error-message">
                               <b className="ds-payment-alert-ico">?
                                   <b className="ds-payment-error-text">{this.state.textErrorHolderName}</b>
@@ -363,7 +361,7 @@ class CreditCard extends React.Component {
                           value={this.state.CCexpiry}
                           onBlur={this.validateExpire}
                           onKeyPress={this.isNumber}
-                          onChange={this.change.bind(this, 'CCexpiry')} />
+                          onChange={this.change} />
                       <div className="error-message">
                           <b className="ds-payment-alert-ico">?
                               <b className="ds-payment-error-text">{this.state.textErrorExpire}</b>
@@ -380,7 +378,7 @@ class CreditCard extends React.Component {
                           onBlur={this.addFlipped}
                           onKeyPress={this.isNumber}
                           onFocus={this.addFlipped}
-                          onChange={this.change.bind(this, 'CvvNumber')} />
+                          onChange={this.change} />
                       <div className="error-message">
                           <b className="ds-payment-alert-ico">?
                               <b className="ds-payment-error-text">{this.state.textErrorCvvNumber}</b>
@@ -391,7 +389,7 @@ class CreditCard extends React.Component {
                   {installmentsContent}
 
                   <div className="grid large-100 medium-100 small-100">
-                      <button type="submit" className="ds-payment-button" onClick={this.handleSubmit.bind(this)}>  Pagar </button>
+                      <button type="submit" className="ds-payment-button" onClick={this.handleSubmit}>Pagar</button>
                   </div>
               </form>
               <style dangerouslySetInnerHTML={{__html: styles}}></style>

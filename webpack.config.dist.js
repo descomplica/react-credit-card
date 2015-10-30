@@ -25,9 +25,9 @@ module.exports = {
   },
 
   output: {
-    filename: 'dist/react-credit-card',
+    filename: 'dist/react-credit-card.js',
     libraryTarget: 'umd',
-    library: 'ReactComponentCreditCard'
+    library: 'CreditCard'
   },
 
 
@@ -40,8 +40,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.DedupePlugin()
   ]
 };

@@ -1,12 +1,11 @@
 {
   "name": "react-credit-card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Simple React component Credit Card",
   "main": "./dist/modules/index.js",
   "scripts": {
     "bundle-demo": "webpack --config webpack.config.js",
-    "bundle-dist": "webpack -p --config webpack.config.dist.js",
-    "bundle": "npm run bundle-demo && npm run bundle-dist",
+    "bundle": "webpack -p --config webpack.config.dist.js",
     "demo": "webpack-dev-server --config webpack.config.js",
     "lint": "eslint ./src",
     "test": "npm run lint && mocha -R spec --compilers jsx:test/compiler.js ./src/*Test.jsx"
@@ -36,9 +35,9 @@
     "mocha": "2.3.3",
     "node-sass": "3.3.x",
     "postcss-loader": "^0.6.0",
-    "react-addons-test-utils": "0.14.0",
+    "react-addons-test-utils": "0.14.x",
     "react-css-modules": "^3.5.0",
-    "react-dom": "0.14.0",
+    "react-dom": "0.14.x",
     "react-select": "^0.7.0",
     "sass-loader": "^3.0.0",
     "sinon": "1.17.1",
@@ -50,6 +49,6 @@
     "webpack-dev-server": "1.12.x"
   },
   "peerDependencies": {
-    "react": "0.14.0"
+    "react": "0.14.x"
   }
 }

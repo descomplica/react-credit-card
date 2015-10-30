@@ -7,7 +7,7 @@ A Simple React component Credit Card
 ### Getting Started
 
 ```shell
-$ git clone -o your-component -b master --single-branch https://github.com/keppelen/react-credit-card.git your-component
+$ git clone -o your-component -b master --single-branch https://github.com/descomplica/react-credit-card.git your-component
 ```
 
 ### Commands run local
@@ -93,4 +93,4 @@ ReactDOM.render(
 
 ## LICENSE
 
-MIT: https://github.com/keppelen/react-credit-card/blob/master/LICENSE
+MIT: https://github.com/descomplica/react-credit-card/blob/master/LICENSE

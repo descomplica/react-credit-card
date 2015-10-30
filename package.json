@@ -1,6 +1,6 @@
 {
-  "name": "reactjs-credit-card",
-  "version": "0.0.3",
+  "name": "react-credit-card",
+  "version": "1.0.0",
   "description": "A Simple React component Credit Card",
   "main": "./dist/react-credit-card.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/keppelen/react-credit-card.git"
+    "url": "https://github.com/descomplica/react-credit-card"
   },
   "keywords": [
     "react",
@@ -19,7 +19,7 @@
     "react-component",
     "credit-card"
   ],
-  "author": "Giovanni Keppelen <keppelen.as@gmail.com>",
+  "author": "Giovanni Keppelen <giovanni.keppelen@descomplica.com.br>",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.0.3",

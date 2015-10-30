@@ -23,10 +23,6 @@ class CreditCard extends React.Component {
       installments: null
     }
 
-    retry = () => {
-        this.setState({ failedPayment: false, isBuying: true });
-    };
-
     change = (e) => {
         var value = {};
         var name = e.target.name;

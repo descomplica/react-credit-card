@@ -1,6 +1,6 @@
 {
   "name": "reactjs-credit-card",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Simple React component Credit Card",
   "main": "./dist/react-credit-card.js",
   "scripts": {

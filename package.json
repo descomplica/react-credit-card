@@ -1,5 +1,5 @@
 {
-  "name": "@keppelen/react-credit-card",
+  "name": "react-credit-card",
   "version": "0.0.2",
   "description": "A Simple React component Credit Card",
   "main": "./dist/react-credit-card.js",

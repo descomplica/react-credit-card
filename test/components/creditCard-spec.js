@@ -114,7 +114,7 @@ describe('Form', () => {
       expect(card.state.validateNumber).toBe(true);
     });
 
-    fit('only number', () => {
+    it('only number', () => {
       card.state.CardNumber = 'only number';
       TestUtils.Simulate.change(ReactDOM.findDOMNode(inputs[0]));
       expect(card.state.CardNumber).toBe('');

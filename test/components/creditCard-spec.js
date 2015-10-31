@@ -9,12 +9,14 @@ import CreditCard from '@components/creditCard';
 describe('Form', () => {
   let card;
   let inputs;
+  let button;
 
   beforeEach(() => {
     card = TestUtils.renderIntoDocument(
       <CreditCard />
     );
     inputs = TestUtils.scryRenderedDOMComponentsWithTag(card, 'input');
+    button = TestUtils.scryRenderedDOMComponentsWithTag(card, 'button');
   });
 
   describe('render correct classname', () => {
@@ -66,7 +68,6 @@ describe('Form', () => {
 
   describe('render button', () => {
     it('button type has submit', () => {
-      var button = TestUtils.scryRenderedDOMComponentsWithTag(card, 'button');
       expect(ReactDOM.findDOMNode(button[0]).type).toBe('submit');
     });
 
@@ -87,6 +88,36 @@ describe('Form', () => {
 
     it('scheme defined to null', () => {
       expect(card.state.scheme).toBe(null);
+    });
+  });
+
+  describe('default props', () => {
+    it('installments equal null', () => {
+      expect(card.props.installments).toBe(null);
+    });
+  });
+
+  describe('validation credit card', () => {
+    it('invalid number', () => {
+      card.state.CardNumber = '2323 2322 2323 3223';
+      TestUtils.Simulate.click(ReactDOM.findDOMNode(button[0]));
+
+      expect(card.state.errorCardNumber).toBe('error');
+      expect(card.state.textErrorCardNumber).toBe('Número de cartão inválido');
+      expect(card.state.validateNumber).toBe(false);
+    });
+
+    it('valid number', () => {
+      card.state.CardNumber = '4111 1111 1111 1111';
+      TestUtils.Simulate.click(ReactDOM.findDOMNode(button[0]));
+      expect(card.state.errorCardNumber).toBe('success');
+      expect(card.state.validateNumber).toBe(true);
+    });
+
+    fit('only number', () => {
+      card.state.CardNumber = 'only number';
+      TestUtils.Simulate.change(ReactDOM.findDOMNode(inputs[0]));
+      expect(card.state.CardNumber).toBe('');
     });
   });
 });

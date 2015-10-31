@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
 class CardUI extends React.Component {
     render() {
@@ -31,6 +31,6 @@ class CardUI extends React.Component {
             </div>
         )
     }
-};
+}
 
 export default CardUI;

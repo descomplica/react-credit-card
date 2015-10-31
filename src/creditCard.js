@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import creditcard from 'creditcard';
 import classnames from 'classnames';
@@ -17,7 +17,7 @@ class CreditCard extends React.Component {
             scheme: null,
             CCexpiry: ''
         };
-    };
+    }
 
     static defaultProps = {
       installments: null
@@ -32,7 +32,7 @@ class CreditCard extends React.Component {
             value.parseCardNumber = creditcard.parse(e.target.value);
             value[name] = value.parseCardNumber.formatted;
             value.scheme = value.parseCardNumber.scheme ? value.parseCardNumber.scheme.toLowerCase() : '';
-        };
+        }
 
         if ( name == 'ClickTerms' ) {
             if ( this.state.Terms ) {
@@ -42,11 +42,11 @@ class CreditCard extends React.Component {
                 this.state.Terms = true
             }
             this.validateTermOfUse();
-        };
+        }
 
         if ( name == 'CCexpiry') {
           value.CCexpiry = this.expiry(e.target.value);
-        };
+        }
 
         this.setState(value);
     };
@@ -67,7 +67,7 @@ class CreditCard extends React.Component {
 
             if (installmentsCount == 1) {
                 text = 'à vista por R$ '
-            };
+            }
 
             installmentOptions.push({
                 value: installmentsCount,
@@ -75,7 +75,7 @@ class CreditCard extends React.Component {
             });
         }
         return installmentOptions;
-    };
+    }
 
     expiry(expiryValue) {
         var expiry, expiryMaxLength;
@@ -98,7 +98,7 @@ class CreditCard extends React.Component {
             expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiryMaxLength);
             return expiry;
         }
-    };
+    }
 
     addFlipped = () => {
         if (this.state.flipped == 'flipped') {
@@ -188,7 +188,7 @@ class CreditCard extends React.Component {
       else {
         this.setState({Installments: true});
       }
-    };
+    }
 
     validateCvv = () => {
         if ( this.state.parseCardNumber) {
@@ -222,7 +222,7 @@ class CreditCard extends React.Component {
         else {
             this.setState({ errorTerms: 'error' });
         }
-    };
+    }
 
     isNumber = (e) => {
       var charCode = (e.which) ? e.which : e.keyCode
@@ -238,7 +238,7 @@ class CreditCard extends React.Component {
         }
 
         e.preventDefault();
-    };
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -277,16 +277,15 @@ class CreditCard extends React.Component {
     priceForInstallmentsCount(installmentsCount) {
         var installmentValue = this.props.price / installmentsCount;
         return installmentValue.toFixed(3).slice(0,-1).replace(".", ",");
-    };
+    }
 
     maxLengthCheck(object) {
       if (object.target.value.length > object.target.maxLength)
         object.target.value = object.target.value.slice(0, object.target.maxLength)
-    };
+    }
 
     render() {
         var typeCard = classnames(this.state.scheme, this.state.flipped);
-        var checked = classnames('ds-component-check-box', this.state.Terms ? 'checked' : '');
         var cvv = this.state.parseCardNumber ? this.state.parseCardNumber.cvv : 3;
         var installmentsContent = <div></div>;
 
@@ -392,6 +391,6 @@ class CreditCard extends React.Component {
             </div>
         )
     }
-};
+}
 
 export default CreditCard;

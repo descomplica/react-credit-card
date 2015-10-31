@@ -10,7 +10,15 @@ A Simple React component Credit Card
 $ git clone -o your-component -b master --single-branch https://github.com/descomplica/react-credit-card.git your-component
 ```
 
-### Commands run local
+## Browser Support
+
+We do care about it.
+
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_64x64.png" width="48px" height="48px" alt="Chrome logo"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_64x64.png" width="48px" height="48px" alt="Firefox logo"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_64x64.png" width="48px" height="48px" alt="Internet Explorer logo"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_64x64.png" width="48px" height="48px" alt="Opera logo"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_64x64.png" width="48px" height="48px" alt="Safari logo"> |
+|:---:|:---:|:---:|:---:|:---:|
+| Latest ✔ | Latest ✔ | IE 9+ ✔ | Latest ✔ | Latest ✔ |
+
+### How to run the demo
 ```shell
 $ cd your-component
 $ npm install                    # Install development dependencies
@@ -20,7 +28,7 @@ $ npm start                      # Run webpack dev server
 
 ## Usage in yor project
 ```shell
-$ npm install --save reactjs-credit-card
+$ npm install --save @descomplica/react-credit-card
 $ npm install --save react
 $ npm install --save react-dom
 ```
@@ -30,7 +38,7 @@ $ npm install --save react-dom
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreditCard from 'reactjs-credit-card';
+import CreditCard from '@descomplica/react-credit-card';
 
 let callback = (data) => {
   /* data
@@ -56,7 +64,7 @@ ReactDOM.render(
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreditCard from 'reactjs-credit-card';
+import CreditCard from '@descomplica/react-credit-card';
 
 let callback = (data) => {
   /* data
@@ -90,6 +98,11 @@ ReactDOM.render(
 </body>
 </html>
 ```
+
+# Tests
+**react-credit-card** is tested using [Jasmine](http://jasmine.github.io/) and [Karma](http://karma-runner.github.io/0.13/index.html). To run the tests:
+
+1. `npm test`
 
 ## LICENSE
 

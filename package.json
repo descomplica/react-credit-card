@@ -20,7 +20,7 @@
     "credit-card"
   ],
   "author": "Giovanni Keppelen <giovanni.keppelen@descomplica.com.br>",
-  "license": "MIT",
+  "license": "GNU",
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "babel": "5.8.23",

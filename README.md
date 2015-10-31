@@ -33,7 +33,7 @@ $ npm install --save react
 $ npm install --save react-dom
 ```
 
-```JS
+```js
 'use strict';
 
 import React from 'react';
@@ -59,7 +59,7 @@ ReactDOM.render(
 ```
 
 ## With installments
-```JS
+```js
 'use strict';
 
 import React from 'react';

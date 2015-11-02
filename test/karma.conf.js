@@ -40,6 +40,8 @@ module.exports = function(config) {
 
     autoWatch: true,
 
-    browsers: ['PhantomJS', 'Chrome']
+    browsers: ['PhantomJS', 'Chrome'],
+
+    singleRun: true
   })
 }

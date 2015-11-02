@@ -40,7 +40,6 @@
     "karma-phantomjs-shim": "^1.1.2",
     "karma-spec-reporter": "0.0.22",
     "karma-webpack": "^1.7.0",
-    "node-sass": "3.3.x",
     "phantomjs": "^1.9.18",
     "postcss-loader": "^0.6.0",
     "react-addons-test-utils": "0.14.x",

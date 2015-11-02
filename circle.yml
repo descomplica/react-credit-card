@@ -1,0 +1,23 @@
+machine:
+  node:
+    version: 4.2.1
+  python:
+    version: 2.7.3
+
+dependencies:
+  pre:
+    - pip install awscli
+  post:
+    - npm run lint
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run bundle
+      - aws s3 sync dist/ s3://descomplica/front-end/libs/ --cache-control public,max-age=3600 --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+  staging:
+    branch: /^(?!master).*$/
+    commands:
+      - npm run bundle
+      - aws s3 sync dist/ s3://descomplica/front-end/libs/dev/ --cache-control public,max-age=600 --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers

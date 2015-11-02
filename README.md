@@ -1,4 +1,4 @@
-# React Component Credit Card
+# React Component Credit Card - [![status](https://circleci.com/gh/descomplica/react-credit-card.svg?style=shield&circle-token=75e1e9d1d6f61f23169223cd11c261a3328b26d7)](https://circleci.com/gh/descomplica/react-credit-card)
 
 A Simple React component Credit Card
 

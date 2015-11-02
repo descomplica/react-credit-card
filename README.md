@@ -85,7 +85,7 @@ import CreditCard from '@descomplica/react-credit-card';
     }
 
     ReactDOM.render(
-      <CreditCard success={callback} />,
+      React.createElement(CreditCard, { success: callback }),
       document.getElementById('demo')
     );
   </script>

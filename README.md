@@ -18,85 +18,85 @@ We do care about it.
 |:---:|:---:|:---:|:---:|:---:|
 | Latest ✔ | Latest ✔ | IE 9+ ✔ | Latest ✔ | Latest ✔ |
 
-### How to run the demo
-```shell
-$ cd your-component
-$ npm install                    # Install development dependencies
-$ npm run bundle                 # Build scripts
-$ npm start                      # Run webpack dev server
-```
+## CommonJS
 
-## Usage in yor project
+Install via NPM
+
 ```shell
 $ npm install --save @descomplica/react-credit-card
-$ npm install --save react
-$ npm install --save react-dom
 ```
+
+Then:
 
 ```js
-'use strict';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
 import CreditCard from '@descomplica/react-credit-card';
 
-let callback = (data) => {
-  /* data
-    {
-      CardNumber: "4111111111111111",
-      CvvNumber: "123",
-      ExpMonth: "12",
-      ExpYear: "2022",
-      HolderName: "giovanni keppelen"
-    }
-  */
-}
+…
+  callback = (data) => {
+    /* data
+      {
+        CardNumber: "4111111111111111",
+        CvvNumber: "123",
+        ExpMonth: "12",
+        ExpYear: "2022",
+        HolderName: "giovanni keppelen"
+      }
+    */
+  }
 
-ReactDOM.render(
-  <CreditCard success={callback} />,
-  document.getElementById('demo')
-);
+  render() {
+    return (
+      <CreditCard success={callback} />
+    );
+  }
+
+…
 ```
 
-## With installments
+### With installments
 ```js
-'use strict';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import CreditCard from '@descomplica/react-credit-card';
-
-let callback = (data) => {
-  /* data
-    {
-      CardNumber: "4111111111111111",
-      CvvNumber: "123",
-      ExpMonth: "12",
-      ExpYear: "2022",
-      HolderName: "giovanni keppelen",
-      Installments: 2
-    }
-  */
-}
-
-ReactDOM.render(
-  <CreditCard price={200.00} installments={6} success={callback} />,
-  document.getElementById('demo')
-);
+…
+  render() {
+    return (
+      <CreditCard price={200.00} installments={6} success={callback} />
+    );
+  }
+…
 ```
 
-```HTML
+### Browser
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Credit Card Demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-with-addons.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.min.js"></script>
+  <script src="https://dnnsjdj5swfc3.cloudfront.net/front-end/libs/react-credit-card.js"></script>
 </head>
 <body>
   <div class="demo" id="demo"></div>
-  <script src="/dist/your-script.js"></script>
+
+  <script>
+    var CreditCard = CreditCard;
+    var callback = function(data) {
+    }
+
+    ReactDOM.render(
+      <CreditCard success={callback} />,
+      document.getElementById('demo')
+    );
+  </script>
 </body>
 </html>
+```
+
+### Development
+```shell
+$ npm install
+$ npm start
 ```
 
 # Tests

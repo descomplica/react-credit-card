@@ -34,11 +34,6 @@ class CreditCard extends React.Component {
             value.scheme = value.parseCardNumber.scheme ? value.parseCardNumber.scheme.toLowerCase() : '';
         }
 
-        if ( name == 'ClickTerms' ) {
-            this.state.Terms = !this.state.Terms
-            this.validateTermOfUse();
-        }
-
         if ( name == 'CCexpiry') {
           value.CCexpiry = this.expiry(e.target.value);
         }
@@ -169,7 +164,7 @@ class CreditCard extends React.Component {
         this.setState({
           errorInstallments: 'success'
         });
-      } 
+      }
       else if (this.props.installments && !this.state.Installments) {
         this.setState({
             errorInstallments: 'error',
@@ -203,15 +198,6 @@ class CreditCard extends React.Component {
             this.state.validateCvv = false;
         }
     };
-
-    validateTermOfUse() {
-        if (this.state.Terms) {
-            this.setState({ errorTerms: 'success' });
-        }
-        else {
-            this.setState({ errorTerms: 'error' });
-        }
-    }
 
     isNumber = (e) => {
       var charCode = (e.which) ? e.which : e.keyCode
@@ -259,7 +245,6 @@ class CreditCard extends React.Component {
             this.validateName();
             this.validateNumber();
             this.validateInstallments();
-            this.validateTermOfUse();
         }
     };
 

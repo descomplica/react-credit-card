@@ -35,12 +35,7 @@ class CreditCard extends React.Component {
         }
 
         if ( name == 'ClickTerms' ) {
-            if ( this.state.Terms ) {
-                this.state.Terms = false
-            }
-            else {
-                this.state.Terms = true
-            }
+            this.state.Terms = !this.state.Terms
             this.validateTermOfUse();
         }
 
@@ -106,12 +101,10 @@ class CreditCard extends React.Component {
                 flipped: ''
             });
         }
-        else {
-            if ( this.state.scheme != 'american express' ) {
-                this.setState({
-                    flipped: 'flipped'
-                });
-            }
+        else if ( this.state.scheme != 'american express' ) {
+          this.setState({
+              flipped: 'flipped'
+          });
         }
         this.validateCvv();
     };
@@ -172,18 +165,16 @@ class CreditCard extends React.Component {
     };
 
     validateInstallments() {
-      if (this.props.installments) {
-        if(this.state.Installments) {
-            this.setState({
-                errorInstallments: 'success'
-            });
-        }
-        else {
-            this.setState({
-                errorInstallments: 'error',
-                textErrorInstallments: 'Você precisa escolher as parcelas'
-            });
-        }
+      if (this.props.installments && this.state.Installments) {
+        this.setState({
+          errorInstallments: 'success'
+        });
+      } 
+      else if (this.props.installments && !this.state.Installments) {
+        this.setState({
+            errorInstallments: 'error',
+            textErrorInstallments: 'Você precisa escolher as parcelas'
+        });
       }
       else {
         this.setState({Installments: true});
@@ -191,20 +182,18 @@ class CreditCard extends React.Component {
     }
 
     validateCvv = () => {
-        if ( this.state.parseCardNumber) {
-            if (this.state.CvvNumber) {
-              if (this.state.parseCardNumber.cvv === this.state.CvvNumber.length) {
-                  this.setState({ errorCvvNumber: 'success' });
-                  this.state.validateCvv = true;
-              }
-              else {
-                  this.setState({
-                      errorCvvNumber: 'error',
-                      textErrorCvvNumber: 'Código de segurança incorreto'
-                  });
-                  this.state.validateCvv = false;
-              }
-            }
+        if ( this.state.parseCardNumber && this.state.CvvNumber) {
+          if (this.state.parseCardNumber.cvv === this.state.CvvNumber.length) {
+              this.setState({ errorCvvNumber: 'success' });
+              this.state.validateCvv = true;
+          }
+          else {
+              this.setState({
+                  errorCvvNumber: 'error',
+                  textErrorCvvNumber: 'Código de segurança incorreto'
+              });
+              this.state.validateCvv = false;
+          }
         }
         else {
             this.setState({

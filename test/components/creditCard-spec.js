@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
-import CreditCard from '@components/creditCard';
+import CreditCard from '../../src/creditCard';
 
 describe('Form', () => {
   let card;

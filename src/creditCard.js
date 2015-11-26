@@ -4,8 +4,8 @@ import React from 'react';
 import Select from 'react-select';
 import creditcard from 'creditcard';
 import classnames from 'classnames';
-import CardUI from '@components/CardUI';
-import styles from '@styles/creditcard.scss';
+import CardUI from './CardUI';
+import styles from '../styles/creditcard.scss';
 
 class CreditCard extends React.Component {
 

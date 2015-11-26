@@ -1,5 +1,5 @@
 'use strict'
 
-import creditCard from '@components/creditCard';
+import creditCard from './creditCard';
 
 export default creditCard;

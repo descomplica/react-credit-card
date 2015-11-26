@@ -24,10 +24,6 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js'],
-    alias: {
-      '@components': path.join(__dirname, 'src'),
-      '@styles': path.join(__dirname, 'styles')
-    }
   },
 
   plugins: [
